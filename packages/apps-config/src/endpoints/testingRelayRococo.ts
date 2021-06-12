@@ -99,15 +99,6 @@ export function createRococo (t: TFunction): EndpointOption {
         }
       },
       {
-        info: 'rococoCentrifuge',
-        isDisabled: true, // Rococo reset
-        paraId: 10001,
-        text: t('rpc.rococo.centrifuge', 'Centrifuge Charcoal', { ns: 'apps-config' }),
-        providers: {
-          Centrifuge: 'wss://fullnode-collator.charcoal.centrifuge.io'
-        }
-      },
-      {
         info: 'rococoClover',
         isDisabled: true, // Rococo reset
         paraId: 229,
@@ -180,21 +171,28 @@ export function createRococo (t: TFunction): EndpointOption {
         }
       },
       {
-        info: 'rococoEquilibrium',
-        isDisabled: true, // Rococo reset
-        paraId: 42,
-        text: t('rpc.rococo.equilibrium', 'Equilibrium', { ns: 'apps-config' }),
-        providers: {
-          Equilibrium: 'wss://rococo.equilibrium.io'
-        }
-      },
-      {
         info: 'rococoGalital',
         isDisabled: true, // Rococo reset
         paraId: 1230,
         text: t('rpc.rococo.galital', 'Galital PC1', { ns: 'apps-config' }),
         providers: {
           StarkleyTech: 'wss://galital-rpc.starkleytech.com'
+        }
+      },
+      {
+        info: 'rococoGenshiro',
+        paraId: 2021,
+        text: t('rpc.rococo.genshiro', 'Genshiro', { ns: 'apps-config' }),
+        providers: {
+          Equilibrium: 'wss://gens-rococo.equilibrium.io'
+        }
+      },
+      {
+        info: 'rococoHalongbay',
+        paraId: 2018,
+        text: t('rpc.rococo.halongbay', 'Halongbay', { ns: 'app-config' }),
+        providers: {
+          Halongbay: 'wss://halongbay.polkafoundry.com'
         }
       },
       {
@@ -244,7 +242,7 @@ export function createRococo (t: TFunction): EndpointOption {
       },
       {
         info: 'rococoKylin',
-        paraId: 2000,
+        paraId: 2013,
         text: t('rpc.kylin-node.co.uk', 'Kylin Network', { ns: 'apps-config' }),
         providers: {
           'Kylin Network': 'wss://rpc.kylin-node.co.uk'
@@ -293,6 +291,14 @@ export function createRococo (t: TFunction): EndpointOption {
         text: t('rpc.rococo.moonrock', 'Moonrock', { ns: 'apps-config' }),
         providers: {
           Moonrock: 'wss://wss-moonrock.gcp.purestake.run'
+        }
+      },
+      {
+        info: 'rococoOriginTrail',
+        paraId: 2024,
+        text: t('rpc.origintrail', 'OriginTrail Parachain', { ns: 'apps-config' }),
+        providers: {
+          'Trace Labs': 'wss://parachain-rpc.origin-trail.network'
         }
       },
       {
@@ -414,11 +420,10 @@ export function createRococo (t: TFunction): EndpointOption {
       },
       {
         info: 'rococoVln',
-        isDisabled: true, // Rococo reset
-        paraId: 3586,
-        text: t('rpc.rococo.vln', 'Valiu Liquidity Network PC', { ns: 'apps-config' }),
+        paraId: 2007,
+        text: t('rpc.rococo.vln', 'Valibre Network PC', { ns: 'apps-config' }),
         providers: {
-          Valiu: 'wss://vln.valiu.dev'
+          Valibre: 'wss://testnet.valibre.dev'
         }
       },
       {

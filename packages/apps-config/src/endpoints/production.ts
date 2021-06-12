@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import type { TFunction } from 'i18next';
-import type { LinkOption } from '../settings/types';
+import type { LinkOption } from './types';
 
 import { expandEndpoints } from './util';
 
@@ -15,7 +15,7 @@ import { expandEndpoints } from './util';
 //   value: The actual hosted secure websocket endpoint
 
 // alphabetical based on chain name
-export function createProduction (t: TFunction): LinkOption[] {
+export function createProduction (t: TFunction, firstOnly?: boolean): LinkOption[] {
   return expandEndpoints(t, [
     {
       dnslink: 'centrifuge',
@@ -26,17 +26,10 @@ export function createProduction (t: TFunction): LinkOption[] {
       }
     },
     {
-      info: 'crab',
-      text: t('rpc.prod.crab', 'Darwinia Crab', { ns: 'apps-config' }),
-      providers: {
-        'Darwinia Network': 'wss://crab-rpc.darwinia.network'
-      }
-    },
-    {
       info: 'chainx',
       text: t('rpc.prod.chainx', 'ChainX', { ns: 'apps-config' }),
       providers: {
-        ChainX: 'wss://mainnet.chainx.org/ws',
+        // ChainX: 'wss://mainnet.chainx.org/ws', // https://github.com/polkadot-js/apps/issues/5547
         'Patract Elara': 'wss://chainx.elara.patract.io'
       }
     },
@@ -46,6 +39,13 @@ export function createProduction (t: TFunction): LinkOption[] {
       providers: {
         'Darwinia Network': 'wss://rpc.darwinia.network',
         'Patract Elara': 'wss://darwinia.elara.patract.io'
+      }
+    },
+    {
+      info: 'crab',
+      text: t('rpc.prod.crab', 'Darwinia Crab', { ns: 'apps-config' }),
+      providers: {
+        'Darwinia Network': 'wss://crab-rpc.darwinia.network'
       }
     },
     {
@@ -75,6 +75,7 @@ export function createProduction (t: TFunction): LinkOption[] {
     },
     {
       info: 'hanonycash',
+      isUnreachable: true, // https://github.com/polkadot-js/apps/runs/2755409009?check_suite_focus=true
       text: t('rpc.prod.hanonycash', 'Hanonycash', { ns: 'apps-config' }),
       providers: {
         Hanonycash: 'wss://rpc.hanonycash.com'
@@ -166,5 +167,5 @@ export function createProduction (t: TFunction): LinkOption[] {
         DataHighway: 'wss://westlake.datahighway.com'
       }
     }
-  ]);
+  ], firstOnly);
 }
